@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/e94328dcb651447eb238f537cd8aa825/artifacts
+end_time: 1713093452908
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: e94328dcb651447eb238f537cd8aa825
+run_name: traveling-stag-380
+run_uuid: e94328dcb651447eb238f537cd8aa825
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713093452665
+status: 3
+tags: []
+user_id: wojciechostrowski

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/c7845a6c718b48b3a642ebe63d254a9f/artifacts
+end_time: 1713093716699
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: c7845a6c718b48b3a642ebe63d254a9f
+run_name: persistent-skunk-976
+run_uuid: c7845a6c718b48b3a642ebe63d254a9f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713093581123
+status: 4
+tags: []
+user_id: wojciechostrowski

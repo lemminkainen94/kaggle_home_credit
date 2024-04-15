@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/8a458cb5c5424a0f9597c2cebac150e7/artifacts
+end_time: 1713117882371
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: 8a458cb5c5424a0f9597c2cebac150e7
+run_name: upbeat-colt-97
+run_uuid: 8a458cb5c5424a0f9597c2cebac150e7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713117722721
+status: 4
+tags: []
+user_id: wojciechostrowski

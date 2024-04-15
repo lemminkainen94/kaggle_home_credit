@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/1db93c2dba57421181d417f8934f01bb/artifacts
+end_time: 1713095170602
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: 1db93c2dba57421181d417f8934f01bb
+run_name: caring-ape-937
+run_uuid: 1db93c2dba57421181d417f8934f01bb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713095156647
+status: 4
+tags: []
+user_id: wojciechostrowski

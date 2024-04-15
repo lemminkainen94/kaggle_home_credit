@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/667472224209157606/70a5c0700242430191dc279982950d92/artifacts
+end_time: 1713038134180
+entry_point_name: ''
+experiment_id: '667472224209157606'
+lifecycle_stage: active
+run_id: 70a5c0700242430191dc279982950d92
+run_name: clumsy-auk-147
+run_uuid: 70a5c0700242430191dc279982950d92
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713038102412
+status: 4
+tags: []
+user_id: wojciechostrowski

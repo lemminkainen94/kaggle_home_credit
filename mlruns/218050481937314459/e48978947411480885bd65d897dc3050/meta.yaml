@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/e48978947411480885bd65d897dc3050/artifacts
+end_time: 1713115875803
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: e48978947411480885bd65d897dc3050
+run_name: receptive-fly-485
+run_uuid: e48978947411480885bd65d897dc3050
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713115872399
+status: 4
+tags: []
+user_id: wojciechostrowski

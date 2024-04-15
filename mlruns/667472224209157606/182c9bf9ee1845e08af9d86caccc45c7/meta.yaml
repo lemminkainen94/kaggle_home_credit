@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/667472224209157606/182c9bf9ee1845e08af9d86caccc45c7/artifacts
+end_time: 1713040412604
+entry_point_name: ''
+experiment_id: '667472224209157606'
+lifecycle_stage: active
+run_id: 182c9bf9ee1845e08af9d86caccc45c7
+run_name: skittish-foal-693
+run_uuid: 182c9bf9ee1845e08af9d86caccc45c7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713039859862
+status: 3
+tags: []
+user_id: wojciechostrowski

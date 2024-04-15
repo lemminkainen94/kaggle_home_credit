@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/d07ba33227554c09bfd491e7e8c619dc/artifacts
+end_time: 1713084268010
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: d07ba33227554c09bfd491e7e8c619dc
+run_name: spiffy-pug-318
+run_uuid: d07ba33227554c09bfd491e7e8c619dc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713084267991
+status: 4
+tags: []
+user_id: wojciechostrowski

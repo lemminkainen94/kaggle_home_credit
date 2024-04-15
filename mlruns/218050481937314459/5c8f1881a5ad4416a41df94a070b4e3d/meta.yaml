@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/5c8f1881a5ad4416a41df94a070b4e3d/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: 5c8f1881a5ad4416a41df94a070b4e3d
+run_name: resilient-crab-675
+run_uuid: 5c8f1881a5ad4416a41df94a070b4e3d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713160209479
+status: 1
+tags: []
+user_id: wojciechostrowski

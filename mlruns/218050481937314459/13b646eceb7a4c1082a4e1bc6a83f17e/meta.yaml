@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/13b646eceb7a4c1082a4e1bc6a83f17e/artifacts
+end_time: 1713115014674
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: 13b646eceb7a4c1082a4e1bc6a83f17e
+run_name: abundant-pig-188
+run_uuid: 13b646eceb7a4c1082a4e1bc6a83f17e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713099028489
+status: 4
+tags: []
+user_id: wojciechostrowski
