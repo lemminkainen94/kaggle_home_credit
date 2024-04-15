@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/218050481937314459
+creation_time: 1713079301255
+experiment_id: '218050481937314459'
+last_update_time: 1713079301255
+lifecycle_stage: active
+name: credit-score-cv

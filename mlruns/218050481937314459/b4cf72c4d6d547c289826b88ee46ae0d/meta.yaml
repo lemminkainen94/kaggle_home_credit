@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/b4cf72c4d6d547c289826b88ee46ae0d/artifacts
+end_time: 1713117722634
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: b4cf72c4d6d547c289826b88ee46ae0d
+run_name: whimsical-crane-412
+run_uuid: b4cf72c4d6d547c289826b88ee46ae0d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713115955922
+status: 3
+tags: []
+user_id: wojciechostrowski

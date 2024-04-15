@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/d61df194b2f84c869b11c3114babfa2b/artifacts
+end_time: 1713084392100
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: d61df194b2f84c869b11c3114babfa2b
+run_name: placid-cod-804
+run_uuid: d61df194b2f84c869b11c3114babfa2b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713084288619
+status: 4
+tags: []
+user_id: wojciechostrowski

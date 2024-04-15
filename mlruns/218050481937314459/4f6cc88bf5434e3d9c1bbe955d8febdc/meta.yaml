@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/4f6cc88bf5434e3d9c1bbe955d8febdc/artifacts
+end_time: 1713085040253
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: 4f6cc88bf5434e3d9c1bbe955d8febdc
+run_name: bedecked-crow-709
+run_uuid: 4f6cc88bf5434e3d9c1bbe955d8febdc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713084875072
+status: 4
+tags: []
+user_id: wojciechostrowski

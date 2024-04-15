@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/667472224209157606/a0d95462a7e74fbcae5246be597edebc/artifacts
+end_time: 1712266293149
+entry_point_name: ''
+experiment_id: '667472224209157606'
+lifecycle_stage: active
+run_id: a0d95462a7e74fbcae5246be597edebc
+run_name: hilarious-eel-597
+run_uuid: a0d95462a7e74fbcae5246be597edebc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712266204653
+status: 3
+tags: []
+user_id: wojciechostrowski

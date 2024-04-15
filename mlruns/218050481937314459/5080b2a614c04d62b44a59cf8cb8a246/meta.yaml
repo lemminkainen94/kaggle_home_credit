@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/5080b2a614c04d62b44a59cf8cb8a246/artifacts
+end_time: 1713087177117
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: 5080b2a614c04d62b44a59cf8cb8a246
+run_name: dashing-moose-130
+run_uuid: 5080b2a614c04d62b44a59cf8cb8a246
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713086343022
+status: 3
+tags: []
+user_id: wojciechostrowski

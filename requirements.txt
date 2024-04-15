@@ -1,0 +1,15 @@
+jupyterlab
+numpy
+pandas 
+matplotlib
+seaborn
+scikit-learn
+scipy 
+git
+tqdm
+catboost
+lightgbm
+xgboost
+polars
+pylint
+black

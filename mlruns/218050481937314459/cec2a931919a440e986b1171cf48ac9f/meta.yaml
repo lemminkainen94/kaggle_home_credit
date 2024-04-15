@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/cec2a931919a440e986b1171cf48ac9f/artifacts
+end_time: 1713126238119
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: cec2a931919a440e986b1171cf48ac9f
+run_name: shivering-eel-792
+run_uuid: cec2a931919a440e986b1171cf48ac9f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713126082065
+status: 4
+tags: []
+user_id: wojciechostrowski

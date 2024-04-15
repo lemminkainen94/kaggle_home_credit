@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/03e1e9d3a379449998d94c1fd859cc48/artifacts
+end_time: 1713126971521
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: 03e1e9d3a379449998d94c1fd859cc48
+run_name: nimble-crane-238
+run_uuid: 03e1e9d3a379449998d94c1fd859cc48
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713126815563
+status: 4
+tags: []
+user_id: wojciechostrowski

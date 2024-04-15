@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/6ba8488cfc684b3086939438da33c15f/artifacts
+end_time: 1713129103312
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: 6ba8488cfc684b3086939438da33c15f
+run_name: unequaled-gnu-221
+run_uuid: 6ba8488cfc684b3086939438da33c15f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713127013985
+status: 4
+tags: []
+user_id: wojciechostrowski

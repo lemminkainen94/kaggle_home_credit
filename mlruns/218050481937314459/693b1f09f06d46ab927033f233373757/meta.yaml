@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/218050481937314459/693b1f09f06d46ab927033f233373757/artifacts
+end_time: 1713093759806
+entry_point_name: ''
+experiment_id: '218050481937314459'
+lifecycle_stage: active
+run_id: 693b1f09f06d46ab927033f233373757
+run_name: casual-bird-610
+run_uuid: 693b1f09f06d46ab927033f233373757
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713093733680
+status: 4
+tags: []
+user_id: wojciechostrowski
