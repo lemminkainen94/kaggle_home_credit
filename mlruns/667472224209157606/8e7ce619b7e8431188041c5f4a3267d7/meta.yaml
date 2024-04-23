@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/667472224209157606/8e7ce619b7e8431188041c5f4a3267d7/artifacts
+end_time: 1713799662822
+entry_point_name: ''
+experiment_id: '667472224209157606'
+lifecycle_stage: active
+run_id: 8e7ce619b7e8431188041c5f4a3267d7
+run_name: polite-fowl-276
+run_uuid: 8e7ce619b7e8431188041c5f4a3267d7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713799647029
+status: 4
+tags: []
+user_id: wojciechostrowski

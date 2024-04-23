@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/667472224209157606/4e53b539830a459187ddef184da26f71/artifacts
+end_time: 1713799996803
+entry_point_name: ''
+experiment_id: '667472224209157606'
+lifecycle_stage: active
+run_id: 4e53b539830a459187ddef184da26f71
+run_name: carefree-gull-286
+run_uuid: 4e53b539830a459187ddef184da26f71
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713799743476
+status: 3
+tags: []
+user_id: wojciechostrowski

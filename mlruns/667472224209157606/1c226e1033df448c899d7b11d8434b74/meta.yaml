@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/667472224209157606/1c226e1033df448c899d7b11d8434b74/artifacts
+end_time: 1713805675539
+entry_point_name: ''
+experiment_id: '667472224209157606'
+lifecycle_stage: active
+run_id: 1c226e1033df448c899d7b11d8434b74
+run_name: stylish-steed-78
+run_uuid: 1c226e1033df448c899d7b11d8434b74
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713805614870
+status: 3
+tags: []
+user_id: wojciechostrowski

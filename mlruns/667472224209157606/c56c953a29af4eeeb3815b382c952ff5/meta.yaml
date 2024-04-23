@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/667472224209157606/c56c953a29af4eeeb3815b382c952ff5/artifacts
+end_time: 1713811989170
+entry_point_name: ''
+experiment_id: '667472224209157606'
+lifecycle_stage: active
+run_id: c56c953a29af4eeeb3815b382c952ff5
+run_name: unleashed-lark-469
+run_uuid: c56c953a29af4eeeb3815b382c952ff5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713811912421
+status: 3
+tags: []
+user_id: wojciechostrowski
