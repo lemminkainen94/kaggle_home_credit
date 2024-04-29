@@ -6,7 +6,8 @@ from itertools import combinations
 import pandas as pd
 import polars as pl
 import numpy as np
-from sklearn.impute import KNNImputer
+from sklearn.experimental import enable_iterative_imputer
+from sklearn.impute import KNNImputer, IterativeImputer
 from sklearn.model_selection import StratifiedKFold, cross_val_score, train_test_split
 from scipy.stats import pearsonr, chi2_contingency, ttest_ind
 
@@ -14,8 +15,20 @@ from scipy.stats import pearsonr, chi2_contingency, ttest_ind
 def load_data(data_path="data/train_base.parquet", cat_cols=None) -> pd.DataFrame:
     data = pd.read_parquet(data_path)
     base = data[["case_id", "WEEK_NUM", "target"]]
-    data = data[[x for x in data.columns if x != "case_id"]]
-    y = data["target"]
+    data = data[[x for x in data.columns if x not in ["case_id", "WEEK_NUM", "target"]]]
+    y = base["target"]
+    if cat_cols is None:
+        cat_cols = list(data.select_dtypes("object").columns) + list(data.select_dtypes("bool").columns)
+    
+    data[cat_cols] = data[cat_cols].astype("category")
+    return base, data, y
+
+def load_data_week_range(data_path, from_week, to_week, cat_cols=None) -> pd.DataFrame:
+    data = pd.read_parquet(data_path)
+    data = data[(data["WEEK_NUM"] >= from_week) & (data["WEEK_NUM"] <= to_week)]
+    base = data[["case_id", "WEEK_NUM", "target"]]
+    data = data[[x for x in data.columns if x not in ["case_id", "WEEK_NUM", "target"]]]
+    y = base["target"]
     if cat_cols is None:
         cat_cols = list(data.select_dtypes("object").columns) + list(data.select_dtypes("bool").columns)
     
@@ -69,15 +82,26 @@ def remove_single_val_cols(data, cat_cols_base):
     return data.drop(columns=cols_to_drop), cols_to_drop
 
 
+def fillna_single_val_cols(data, cat_cols_base):
+    cols_to_drop = []
+    for col in cat_cols_base:
+        if data[col].nunique() == 1:
+            print(col)
+            if 'NA' not in data[col].cat.categories:
+                data[col] = data[col].cat.add_categories('NA')
+                data.loc[data[col].isnull(), col] = 'NA'
+
+
 def rare_values_to_others(data: pd.DataFrame, cat_cols_base):
     for col in cat_cols_base:
         for val in data[col].unique():
             count = len(data[data[col] == val])
-            if count < 10 and count > 0:
+            if count < 100 and count > 0:
                 if 'other' not in data[col].cat.categories:
                     print(col, val)
                     data[col] = data[col].cat.add_categories('other')
                 data.loc[data[col] == val, col] = 'other'
+                data[col] = data[col].cat.remove_categories(val)
 
 
 def cat_cols_correlation_check(data, comb_categorical):
@@ -114,8 +138,8 @@ def indicate_missing_values(data: pd.DataFrame):
     return pd.concat([data, data.isnull().astype(int).add_suffix('_indicator')], axis=1)
 
 def dummify_categorical(data: pd.DataFrame, cols):
-    dummies = pd.get_dummies(df[cols], drop_first=True)
-    return pd.concat([data, dummies], axis=1)
+    dummies = pd.get_dummies(data[cols], drop_first=True).astype(int)
+    return pd.concat([data.drop(columns=cols), dummies], axis=1)
 
 
 def fill_min(data: pd.DataFrame, numeric_cols_base):
@@ -132,4 +156,9 @@ def fill0(data: pd.DataFrame, numeric_cols_base):
 def fill_knn(data:pd.DataFrame):
     knn_imputer = KNNImputer(n_neighbors=5)
     imp_df = knn_imputer.fit_transform(data)
-    return pd.DataFrame(imp_df, columns=data.columns)
+    return pd.DataFrame(imp_df, columns=data.columns), knn_imputer
+
+def fill_lr(data: pd.DataFrame):
+    imputer = IterativeImputer(n_nearest_features=10, skip_complete=True)
+    imp_df = imputer.fit_transform(data)
+    return pd.DataFrame(imp_df, columns=data.columns), imputer
