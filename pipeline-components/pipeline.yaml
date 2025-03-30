@@ -1,0 +1,181 @@
+# PIPELINE DEFINITION
+# Name: kaggle-credit-score
+# Description: Kubeflow pipeline of kaggle Credit Score competition 
+components:
+  comp-data-proc-op:
+    executorLabel: exec-data-proc-op
+    outputDefinitions:
+      artifacts:
+        base:
+          artifactType:
+            schemaTitle: system.Dataset
+            schemaVersion: 0.0.1
+        train_df:
+          artifactType:
+            schemaTitle: system.Dataset
+            schemaVersion: 0.0.1
+  comp-feature-eng-op:
+    executorLabel: exec-feature-eng-op
+    inputDefinitions:
+      artifacts:
+        train_df:
+          artifactType:
+            schemaTitle: system.Dataset
+            schemaVersion: 0.0.1
+    outputDefinitions:
+      artifacts:
+        base_engd:
+          artifactType:
+            schemaTitle: system.Dataset
+            schemaVersion: 0.0.1
+        train_df_engd:
+          artifactType:
+            schemaTitle: system.Dataset
+            schemaVersion: 0.0.1
+  comp-hyperopt-op:
+    executorLabel: exec-hyperopt-op
+    inputDefinitions:
+      artifacts:
+        base_engd:
+          artifactType:
+            schemaTitle: system.Dataset
+            schemaVersion: 0.0.1
+        train_df_engd:
+          artifactType:
+            schemaTitle: system.Dataset
+            schemaVersion: 0.0.1
+  comp-train-eval-op:
+    executorLabel: exec-train-eval-op
+    inputDefinitions:
+      artifacts:
+        base_engd:
+          artifactType:
+            schemaTitle: system.Dataset
+            schemaVersion: 0.0.1
+        train_df_engd:
+          artifactType:
+            schemaTitle: system.Dataset
+            schemaVersion: 0.0.1
+deploymentSpec:
+  executors:
+    exec-data-proc-op:
+      container:
+        args:
+        - --train_dir
+        - /app/data
+        - --output_name
+        - train_df.parquet
+        command:
+        - python
+        - -u
+        - data_proc.py
+        image: aldarionthemariner/kaggle_data_proc:latest
+    exec-feature-eng-op:
+      container:
+        args:
+        - --data_path
+        - '{{$.inputs.artifacts[''train_df''].path}}'
+        - --engd_data_path
+        - '{{$.outputs.artifacts[''train_df_engd''].path}}'
+        - --base_engd_path
+        - '{{$.outputs.artifacts[''base_engd''].path}}'
+        command:
+        - python
+        - -u
+        - feature_eng.py
+        image: aldarionthemariner/kaggle_feature_eng:latest
+    exec-hyperopt-op:
+      container:
+        args:
+        - --data_path
+        - '{{$.inputs.artifacts[''train_df_engd''].path}}'
+        - --base_data_path
+        - '{{$.inputs.artifacts[''base_engd''].path}}'
+        command:
+        - python
+        - -u
+        - train.py
+        image: aldarionthemariner/kaggle_train:latest
+    exec-train-eval-op:
+      container:
+        args:
+        - --data_path
+        - '{{$.inputs.artifacts[''train_df_engd''].path}}'
+        - --base_data_path
+        - '{{$.inputs.artifacts[''base_engd''].path}}'
+        - --model_save_path
+        - /app/lgb
+        command:
+        - python
+        - -u
+        - train.py
+        image: aldarionthemariner/kaggle_train:latest
+pipelineInfo:
+  description: 'Kubeflow pipeline of kaggle Credit Score competition '
+  name: kaggle-credit-score
+root:
+  dag:
+    tasks:
+      data-proc-op:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-data-proc-op
+        taskInfo:
+          name: data-proc-op
+      feature-eng-op:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-feature-eng-op
+        dependentTasks:
+        - data-proc-op
+        inputs:
+          artifacts:
+            train_df:
+              taskOutputArtifact:
+                outputArtifactKey: train_df
+                producerTask: data-proc-op
+        taskInfo:
+          name: feature-eng-op
+      hyperopt-op:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-hyperopt-op
+        dependentTasks:
+        - feature-eng-op
+        inputs:
+          artifacts:
+            base_engd:
+              taskOutputArtifact:
+                outputArtifactKey: base_engd
+                producerTask: feature-eng-op
+            train_df_engd:
+              taskOutputArtifact:
+                outputArtifactKey: train_df_engd
+                producerTask: feature-eng-op
+        taskInfo:
+          name: hyperopt-op
+      train-eval-op:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-train-eval-op
+        dependentTasks:
+        - feature-eng-op
+        - hyperopt-op
+        inputs:
+          artifacts:
+            base_engd:
+              taskOutputArtifact:
+                outputArtifactKey: base_engd
+                producerTask: feature-eng-op
+            train_df_engd:
+              taskOutputArtifact:
+                outputArtifactKey: train_df_engd
+                producerTask: feature-eng-op
+        taskInfo:
+          name: train-eval-op
+schemaVersion: 2.1.0
+sdkVersion: kfp-2.8.0

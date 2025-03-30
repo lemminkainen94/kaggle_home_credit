@@ -1,0 +1,50 @@
+# Creating MLflow deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: kubeflow
+  name: mlflowserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mlflowserver
+  template:
+    metadata:
+      labels:
+        app: mlflowserver
+    spec:
+      volumes:
+        - name: mlflow-pvc
+          persistentVolumeClaim:
+            claimName: mlflow-pvc
+      containers:
+      - name: mlflowserver
+        image: vinayaks117/mlflow-repo:v2.0
+        imagePullPolicy: Always
+        args:
+        - --host=0.0.0.0
+        - --port=5000
+        - --backend-store-uri=/opt/mlflow/backend
+        - --default-artifact-root=/opt/mlflow/artifacts/
+        - --workers=2
+        ports:
+        - name: http
+          containerPort: 5000
+          protocol: TCP
+        volumeMounts:
+        - name: mlflow-pvc
+          mountPath: /opt/mlflow/backend
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: kubeflow
+  name: mlflowserver
+spec:
+  selector:
+    app: mlflowserver
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
