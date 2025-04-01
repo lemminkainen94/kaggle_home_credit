@@ -34,7 +34,7 @@ LGB_SEARCH_SPACE = {
     'reg_alpha': hp.choice('reg_alpha', [0, 1e-1, 1, 2, 5, 7, 10, 100]),
     'reg_lambda': hp.choice('reg_lambda', [0, 1e-1, 1, 5, 10, 20, 100]),
     'max_depth': hp.choice('max_depth', [2, 3, 4, 5, 7, 11]),
-    'device': 'gpu',
+    'device': 'cpu',
     'max_bin': 255,
     'n_jobs': -1,
 }
@@ -51,7 +51,7 @@ LGB_MODEL_PARAMS = params = {
     "bagging_freq": 5,
     "n_estimators": 1000,
     "verbose": -1,
-    'device': 'gpu',
+    'device': 'cpu',
     'max_bin': 255,
     'n_jobs': -1
 }
@@ -258,7 +258,7 @@ def train_and_eval(args):
         except Exception:
             print(param, params[param])
 
-    params['device'] = 'gpu'
+    params['device'] = 'cpu'
     params['max_bin'] = 255
     params['n_jobs'] = -1
 

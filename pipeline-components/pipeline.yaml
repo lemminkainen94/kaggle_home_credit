@@ -6,10 +6,6 @@ components:
     executorLabel: exec-data-proc-op
     outputDefinitions:
       artifacts:
-        base:
-          artifactType:
-            schemaTitle: system.Dataset
-            schemaVersion: 0.0.1
         train_df:
           artifactType:
             schemaTitle: system.Dataset
@@ -56,6 +52,12 @@ components:
           artifactType:
             schemaTitle: system.Dataset
             schemaVersion: 0.0.1
+    outputDefinitions:
+      artifacts:
+        trained_model:
+          artifactType:
+            schemaTitle: system.Dataset
+            schemaVersion: 0.0.1
 deploymentSpec:
   executors:
     exec-data-proc-op:
@@ -64,7 +66,7 @@ deploymentSpec:
         - --train_dir
         - /app/data
         - --output_name
-        - train_df.parquet
+        - '{{$.outputs.artifacts[''train_df''].path}}'
         command:
         - python
         - -u
@@ -104,7 +106,7 @@ deploymentSpec:
         - --base_data_path
         - '{{$.inputs.artifacts[''base_engd''].path}}'
         - --model_save_path
-        - /app/lgb
+        - '{{$.outputs.artifacts[''trained_model''].path}}'
         command:
         - python
         - -u
